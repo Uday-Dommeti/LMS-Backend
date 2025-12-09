@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 const questionSchema = mongoose.Schema({
     category:String,
     question:String,
+    optionType:String,
     options:Array,
-    correctOption:String,
+    correctOption:Array,
     tags:Array,
     difficulty:String
 })

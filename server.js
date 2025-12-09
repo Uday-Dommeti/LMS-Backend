@@ -7,7 +7,8 @@ const upload = require("./controllers/multer.controller");
 const sharp = require("sharp");
 const fs=require("fs");
 const path = require("path");
-const { addQuestion, getQuestions } = require("./controllers/question.controller");
+const { addQuestion, getQuestions, getQuestionById, editQuestionById, deleteQuestionById } = require("./controllers/question.controller");
+const { addNewQuiz, getAllQuizzes, editQuizById, getQuizById, deleteQuizById } = require("./controllers/quiz.controller");
 
 
 const app = express();
@@ -61,7 +62,15 @@ app.post("/addtechnology", async (req, res) => {
 
 app.post("/addQuestion",addQuestion);
 app.get("/getQuestions",getQuestions);
+app.get("/getQuestionById/:Id",getQuestionById);
+app.put("/editQuestionById/:Id",editQuestionById);
+app.delete("/deleteQuestionById/:Id",deleteQuestionById);
 
+app.post("/addQuiz",addNewQuiz);
+app.get("/getAllQuizzes",getAllQuizzes);
+app.put("/editQuizById/:Id",editQuizById);
+app.get("/getQUizById/:Id",getQuizById);
+app.delete("/deleteQuizById/:Id",deleteQuizById);
 
 app.get("/gettechnologies", async (req, res) => {
     try {
