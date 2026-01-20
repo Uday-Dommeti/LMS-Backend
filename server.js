@@ -21,7 +21,7 @@ app.use(cors())
 app.use(bodyparser.urlencoded({ extended: false }))
 app.use(bodyparser.json())
 
-dotenv.config();
+dotenv.config({path:__dirname+"/.env"});
 dbConnect();
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
